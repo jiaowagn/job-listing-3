@@ -19,25 +19,36 @@
  @import "bootstrap";
  @import "font-awesome";
 
+ html {
+   position: relative;
+   min-height: 100%;
+ }
+
+ body {
+   /* Margin bottom by footer height */
+   margin-bottom: 70px;
+ }
+
+
  .jumbotron {
-  background-image:url('http://fullstack-public.oss-cn-qingdao.aliyuncs.com/2017-04-15-542213.png');
+  background-image:url('header.png');
   background-repeat: no-repeat;
   background-size: cover;
-  padding-bottom: 110px;
+  padding-bottom: 80px;
 }
 
 .title {
   background-color: rgba(250, 250, 250, 0.39);//背景颜色含透明度
-  max-width: 500px;//最大宽度
-  margin-top: 200px;//和顶部拉开距离
+  max-width: 600px;//最大宽度
+  margin-top: 100px;//和顶部拉开距离
   margin-bottom: 0;//这样就可以紧接息面的描述文字
   border-top-right-radius: 3px;//右上角圆边
   border-top-left-radius: 3px;//左上角圆边
 }
 
 .jumbotron h1, .jumbotron .h1 {
-     text-align: left;//文字左对齐
-     color: #222;  //字体颜色
+     text-align: center;//文字左对齐
+     color: #424242;  //字体颜色
 
      padding: 50px 20px 0;//上50px，左右20px，下0
  }
@@ -45,10 +56,10 @@
  .jumbotron p {
      margin: 0;//上下左右margin为0
      font-size: 26px;//字体大小
-     max-width: 500px;//最大宽度
+     max-width: 600px;//最大宽度
      background-color: rgba(250, 250, 250, 0.39);//背景颜色含透明度
      padding: 20px;//上下左右padding为20px
-     text-align:left;//文字左对齐
+     text-align:center;//文字左对齐
      color: #222;//字体颜色
 
      border-bottom-right-radius: 3px;//右下角圆边
@@ -64,21 +75,87 @@
 }
 
 .lead {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   text-align: center;
   color: white;
 }
 
 .caption {
-  margin: 30px;
+  margin: 0px;
   text-align: center;
   top: 20px;
 }
 
 .thumbnail {
+    display: block;
+    border-radius: 0;
+    width: 290px;
+    position: relative;
+    float: left;
     border: 0 none;
     box-shadow: none;
-    margin-top: 60px;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.img-thumbnail{
+    border: 0 none;
+    margin: 0px;
+}
+
+.content-2,
+ #content-1{
+     display:block;
+     width: 960px;
+     height: 450px;
+     text-align: center;
+     margin-left: auto;
+     margin-right: auto;
+     position: relative;
+     padding-top: 30px;
+ }
+
+
+ .feature-title{
+     margin-bottom: 20px;
+     letter-spacing: 3px;
+ }
+
+ .short-line{
+     display: block;
+     background: #009688;
+     border-style:  none;
+     border-radius: 0;
+     margin-left: auto;
+     margin-right: auto;
+     margin-top: 50px;
+     margin-bottom: 0px;
+     z-index: 53;
+     width: 50px;
+     height: 3px;
+     position:relative;
+ }
+
+ .content .list{
+   max-width: 960px;
+   text-align: center;
+ }
+
+ .jumbotron-1 {
+  background-image:url('header.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 10px;
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-top: 0;
+}
+
+.jumbotron-1 p{
+  padding-top: 30px;
+  text-align: center;
+  font-size: 20px;
+
 }
 
 .custab{
@@ -96,12 +173,26 @@
   transition: 0.5s;
 }
 
+.footer {
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   /* Set the fixed height of the footer here */
+   height: 70px;
+   background-color: #BDBDBD;
+
+
+   p {
+      color: #424242;
+     margin-top: 15px;
+   }
+  }
+
 .navbar-default {
-     background-color: #212121;  //背景颜色
-
-     border-color: #212121; //边框色
-
-     margin-bottom: 0; //底部 margin 不撑开距离
+     background-color: #424242;  //背景颜色
+     font-size: 16px;
+     border-color: #424242; //边框色
+     margin-bottom: 0px;
  }
  @media (min-width: 768px) {
     .navbar {
@@ -109,46 +200,53 @@
     }
   }
 
-   .navbar-default .navbar-brand {
-     color: #EF6C00; //字体颜色
-
+ .navbar-default .navbar-brand {
+     color: #E0E0E0; //字体颜色
+     font-size: 20px;
      padding: 10px 15px; //上下10px，左右15px
      line-height: 30px; //文字行高
    }
 
+ .navbar-brand > img {
+     display: inline-block; //图片和链接文字显示在同一行
+     margin-right: 10px; //图片和链接文字拉开一点距离
+     width: 32px; //定制图片宽度
+     height: 32px; //定制图片高度
+ }
+
   .navbar-default .navbar-brand:hover,
  .navbar-default .navbar-brand:focus {
-   color: #FF6F00; //鼠标放置在链接上的文字颜色
+   color: #FAFAFA; //鼠标放置在链接上的文字颜色
 
    background-color: transparent; //鼠标放置在链接上的背景颜色，这里设为透明
  }
 
   .navbar-default .navbar-nav > li > a{
-   color: #EF6C00;
+   color: #E0E0E0;
 
  }
 
  .navbar-default .navbar-nav > li > a:hover,
  .navbar-default .navbar-nav > li > a:focus {
-   color: #FF6F00;
+   color: #FAFAFA;
 
-   background-color: transparent;
+   background-color: #546E7A;
  }
  .navbar-default .navbar-nav > .active > a,
  .navbar-default .navbar-nav > .active > a:hover,
  .navbar-default .navbar-nav > .active > a:focus {
-   color: #FF6F00;
+   color: #FAFAFA;
 
-   background-color: #FFE0B2;
+   background-color: #546E7A;
 
  }
 
  .navbar-default .navbar-nav > .open > a,
  .navbar-default .navbar-nav > .open > a:focus,
  .navbar-default .navbar-nav > .open > a:hover {
-   background-color: #FFE0B2;
+   background-color: #546E7A;
 
-   color: #212121;
+   color: #FAFAFA;
 
  }
 
@@ -181,6 +279,7 @@
      border-radius: 3px;//btn圆角
      width: 200px;//这里用指定宽度把btn拉得更长
  }
+
 
  @import url(http://fonts.googleapis.com/css?family=Roboto);
 
@@ -277,4 +376,30 @@
 
 .login-help{
   font-size: 12px;
+}
+
+.panel{
+  margin-top: 20px;
+}
+
+.col-centered{
+  float: none;
+  margin: auto;
+}
+
+.job-name{
+  color: #2196F3;
+  margin-right: 10px;
+}
+
+.wage{
+  color: #E65100;
+}
+
+.resume-count{
+  margin-left: 15px;
+}
+
+.inner-body:hover {
+  background-color: #FCE4EC;
 }

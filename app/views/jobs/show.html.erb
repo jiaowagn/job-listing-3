@@ -1,5 +1,21 @@
-<h1><%= @job.title %></h1>
-<p><%= simple_format(@job.description) %></p>
-<div class="text-center">
-  <%= link_to("投递履历", new_job_resume_path(@job), :style => "font-size: 30px; text-decoration: underline;") %>
+<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-centered">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        <h1><%= @job.title %></h1>
+        <p><%= @job.company %></p>
+      </h3>
+    </div>
+    <div class="panel-body">
+      <h4 style="color: #FF6F00"><%= @job.wage_lower_bound %> - <%= @job.wage_upper_bound %><h4>
+      <span class="glyphicon glyphicon-map-marker" aria-hidden="true"><%= @job.location %></span>
+      <span class="glyphicon glyphicon-time" aria-hidden="true" style="margin-left: 40px;"><%= @job.created_at.to_date %></span>
+      <hr>
+      <h4 style="color: #1976D2;">| 职位描述</h4>
+      <p><%= simple_format(@job.description) %></p>
+    </div>
+    <div class="panel-footer text-center">
+      <%= link_to("投递履历", new_job_resume_path(@job), :style => "font-size: 30px; text-decoration: underline;") %>
+    </div>
+  </div>
 </div>

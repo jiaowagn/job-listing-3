@@ -1,0 +1,21 @@
+<div class="panel panel-default inner-body">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-8">
+        <span class="job-name"><%= link_to(job.title, job_path(job)) %></span>
+        <br><br>
+        <p class="job-condition">
+          <span class="wage"><%= job.wage_lower_bound %> - <%= job.wage_upper_bound %></span>
+          <span class="area">| <%= job.location %> |</span>
+          <span class="edu"><%= job.education_background %> |</span>
+          <span><%= job.work_experience %></span>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <span><%= job.company %></span>
+        <br><br>
+        <p class="glyphicon glyphicon-time" aria-hidden="true"><%= job.created_at.to_date %></p>
+      </div>
+    </div>
+  </div>
+</div>

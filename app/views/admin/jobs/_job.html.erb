@@ -1,0 +1,41 @@
+<div class="panel panel-default inner-body">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-3">
+        <span class="job-name">
+          <%= render_job_status(job) %>
+          <%= link_to(job.title, admin_job_path(job)) %>
+        </span>
+        <br><br>
+        <p class="job-condition">
+          <span class="wage"><%= job.wage_lower_bound %> - <%= job.wage_upper_bound %></span>
+        </p>
+      </div>
+      <div class="col-md-6">
+        <span>
+          <%= link_to("编辑", edit_admin_job_path(job), :class => "btn btn-xs btn-info") %>
+          <%= link_to("删除", admin_job_path(job), :method => :delete, :class => "btn btn-xs btn-danger", :data => { :confirm => "Are you sure?" }) %>
+          <% if job.is_hidden %>
+            <%= link_to("公开职位", publish_admin_job_path(job), method: :post, class:"btn btn-success btn-xs") %>
+          <% else %>
+            <%= link_to("隐藏职位", hide_admin_job_path(job), method: :post, class: "btn btn-warning btn-xs") %>
+          <% end %>
+        </span>
+        <span style="margin-left: 15px;"><%= link_to("简历", admin_job_resumes_path(job)) %>
+          <span class="badge"><%= job.resumes.count %></span>
+        </span>
+        <br><br>
+        <p class="job-condition">
+          <span class="area"><%= job.location %> |</span>
+          <span class="edu"><%= job.education_background %> |</span>
+          <span><%= job.work_experience %></span>
+        </p>
+      </div>
+      <div class="col-md-3">
+        <span><%= job.company %></span>
+        <br><br>
+        <span class="glyphicon glyphicon-time" aria-hidden="true"><%= job.created_at.to_date %></span>
+      </div>
+    </div>
+  </div>
+</div>
