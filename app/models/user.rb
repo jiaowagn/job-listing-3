@@ -7,4 +7,15 @@ class User < ApplicationRecord
   def admin?
     is_admin
   end
+
+  def display_name
+    if self.user_name.present?
+      self.user_name
+    else
+      self.email.split("@").first
+    end
+  end
+
+  mount_uploader :avatar, AvatarUploader
+
 end

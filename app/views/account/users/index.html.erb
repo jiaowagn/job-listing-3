@@ -1,0 +1,21 @@
+<%=simple_form_for [:account, @user] do |f| %>
+  <% if @user.avatar.present? %>
+    <span>个人头像</span><br>
+    <%= image_tag(@user.avatar.medium.url) %>
+  <% end %>
+
+  <div class="group">
+    <%= f.input :avatar, as: :file%>
+  </div>
+
+  <div class="group">
+    <span>登录邮箱(不可修改)</span> <br>
+    <%= current_user.email %>
+  </div>
+
+  <div class="group">
+    <%= f.input :user_name, :label => "用户名" %>
+  </div>
+
+  <%= f.submit "更新资料", class: "btn btn-sm btn-default" %>
+<% end %>

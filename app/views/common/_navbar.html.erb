@@ -39,7 +39,7 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-user-circle" aria-hidden="true">
-                Hi, <%= current_user.email %>
+                Hi, <%= current_user.display_name %>
                 <b class="caret"></b>
               </i>
             </a>
@@ -47,6 +47,7 @@
               <% if current_user.admin? %>
               <li><%= link_to("Admin Panel", admin_jobs_path) %></li>
               <% end %>
+              <li><%= link_to("我的账户", account_users_path) %></li>
               <li><%= link_to("退出", destroy_user_session_path, method: :delete) %></li>
             </ul>
           </li>
