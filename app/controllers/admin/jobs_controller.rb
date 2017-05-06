@@ -4,7 +4,7 @@ class Admin::JobsController < ApplicationController
   layout 'admin'
 
   def index
-    @jobs = Job.recent.paginate(:page => params[:page], :per_page => 5)
+    @jobs = current_user.jobs.recent.paginate(:page => params[:page], :per_page => 5)
   end
 
   def new
@@ -13,6 +13,9 @@ class Admin::JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    if current_user != @job.user
+      redirect_to admin_jobs_path, alert: "You have no access"
+    end
   end
 
   def edit
@@ -21,6 +24,7 @@ class Admin::JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
+    @job.user = current_user
     if @job.save
       redirect_to admin_jobs_path
     else
